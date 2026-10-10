@@ -1,0 +1,1471 @@
+<!doctype html>
+<html lang="zh-HK">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>融心堂- 精神健康 - Kind Heart Charity Style</title>
+
+        <!-- CDN CSS 資源 -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+        
+        <!-- Kind Heart Charity 模板完整 CSS 內嵌 -->
+        <style>
+            :root {
+                --white-color: #ffffff;
+                --primary-color: #5bc0be;
+                --secondary-color: #5a6f80;
+                --section-bg-color: #f0f8ff;
+                --custom-btn-bg-color: #5bc0be;
+                --custom-btn-bg-hover-color: #242424;
+                --dark-color: #000000;
+                --p-color: #717275;
+                --border-color: #e9ecef;
+                --font-family: 'Open Sans', sans-serif;
+            }
+
+            body {
+                background-color: var(--white-color);
+                font-family: var(--font-family);
+            }
+
+            h1, h2, h3, h4, h5, h6 {
+                color: var(--dark-color);
+                font-weight: 700;
+            }
+
+            p {
+                color: var(--p-color);
+                font-size: 16px;
+                line-height: 1.6;
+            }
+
+            /* Header Section */
+            .site-header {
+                background-color: #242424;
+                padding: 12px 0;
+            }
+
+            .site-header p, .site-header a {
+                color: #a7a7a7;
+                font-size: 14px;
+                text-decoration: none;
+            }
+
+            .site-header a:hover {
+                color: var(--white-color);
+            }
+
+            .social-icon {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            .social-icon-item {
+                display: inline-block;
+                margin-left: 10px;
+            }
+
+            .social-icon-link {
+                color: #a7a7a7;
+                font-size: 14px;
+                text-decoration: none;
+            }
+
+            .social-icon-link:hover {
+                color: var(--white-color);
+            }
+
+            /* Navigation */
+            .navbar {
+                background: var(--white-color);
+                padding: 15px 0;
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            .navbar-brand {
+                color: var(--dark-color);
+                font-size: 22px;
+                font-weight: 700;
+                text-decoration: none;
+            }
+
+            .navbar-brand small {
+                display: block;
+                color: var(--primary-color);
+                font-size: 12px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+
+            .navbar-nav .nav-link {
+                color: var(--dark-color);
+                font-weight: 600;
+                padding: 10px 15px !important;
+                cursor: pointer;
+            }
+
+            .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
+                color: var(--primary-color);
+            }
+
+            .custom-btn {
+                background: var(--custom-btn-bg-color);
+                border-radius: 100px;
+                color: var(--white-color);
+                font-weight: 600;
+                padding: 10px 20px;
+                border: 2px solid transparent;
+                transition: all 0.3s ease;
+            }
+
+            .custom-btn:hover {
+                background: var(--custom-btn-bg-hover-color);
+                color: var(--white-color);
+            }
+
+            /* Slideshow (Hero Banner) Dynamic Styles */
+            .hero-slide-item {
+                height: 60vh;
+                min-height: 400px;
+                background-size: cover;
+                background-position: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+            }
+
+            .hero-slide-item::before {
+                content: "";
+                position: absolute;
+                top: 0; left: 0; right: 0; bottom: 0;
+                background: rgba(0, 0, 0, 0.45);
+            }
+
+            .hero-slide-content {
+                position: relative;
+                z-index: 2;
+                color: var(--white-color);
+            }
+
+            .hero-slide-content h1 {
+                color: var(--white-color);
+                font-size: 48px;
+                margin-bottom: 20px;
+            }
+
+            .hero-slide-content p {
+                color: #f0f0f0;
+                font-size: 20px;
+            }
+
+            /* Carousel Indicators & Controls */
+            .carousel-indicators [data-bs-target] {
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                margin: 0 6px;
+                background-color: var(--white-color);
+            }
+
+            /* Section Universal */
+            .section-padding {
+                padding: 80px 0;
+            }
+
+            .section-bg {
+                background-color: var(--section-bg-color);
+            }
+
+            /* About Modal Feature Cards */
+            .about-card {
+                background: var(--section-bg-color);
+                padding: 20px;
+                border-radius: 12px;
+                height: 100%;
+                border-left: 4px solid var(--primary-color);
+            }
+
+            .about-card h5 {
+                color: var(--primary-color);
+                margin-bottom: 10px;
+            }
+
+            /* Featured Blocks (Moods) */
+            .featured-block {
+                text-align: center;
+                background: var(--white-color);
+                border-radius: 20px;
+                padding: 30px 20px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+                transition: all 0.3s ease;
+                cursor: pointer;
+                height: 100%;
+                border: 2px solid transparent;
+            }
+
+            .featured-block:hover, .featured-block.active {
+                transform: translateY(-5px);
+                border-color: var(--primary-color);
+                box-shadow: 0 10px 30px rgba(91, 192, 190, 0.2);
+            }
+
+            .featured-block-icon {
+                font-size: 45px;
+                color: var(--primary-color);
+                margin-bottom: 15px;
+            }
+
+            .featured-block-text {
+                font-weight: 700;
+                color: var(--dark-color);
+                margin-bottom: 0;
+            }
+
+            /* 抽籤小程式樣式與動畫 */
+            .fortune-box {
+                background: #ffffff;
+                border: 2px dashed var(--primary-color);
+                border-radius: 20px;
+                padding: 25px;
+                margin-top: 30px;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+            }
+
+            .fortune-btn {
+                background: #ffb703;
+                color: #ffffff;
+                font-weight: bold;
+                border-radius: 50px;
+                padding: 12px 30px;
+                font-size: 18px;
+                border: none;
+                transition: all 0.3s ease;
+                box-shadow: 0 5px 15px rgba(255, 183, 3, 0.4);
+            }
+
+            .fortune-btn:hover {
+                background: #fb8500;
+                color: #ffffff;
+                transform: scale(1.05);
+            }
+
+            @keyframes shake {
+                0% { transform: rotate(0deg); }
+                25% { transform: rotate(-10deg); }
+                50% { transform: rotate(10deg); }
+                75% { transform: rotate(-10deg); }
+                100% { transform: rotate(0deg); }
+            }
+
+            .shaking {
+                animation: shake 0.5s infinite;
+            }
+
+            .fortune-result-card {
+                background: linear-gradient(135deg, #e0f7fa 0%, #fff 100%);
+                border-radius: 16px;
+                border: 1px solid #b2ebf2;
+                padding: 20px;
+                margin-top: 20px;
+                animation: popUp 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            }
+
+            @keyframes popUp {
+                0% { opacity: 0; transform: scale(0.7) translateY(20px); }
+                100% { opacity: 1; transform: scale(1) translateY(0); }
+            }
+
+            /* 海浪背景動態區塊專屬樣式 */
+            .ocean-video-section {
+                position: relative;
+                overflow: hidden;
+                color: #ffffff;
+            }
+
+            .ocean-video-bg {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                min-width: 100%;
+                min-height: 100%;
+                width: auto;
+                height: auto;
+                z-index: 0;
+                transform: translate(-50%, -50%);
+                object-fit: cover;
+            }
+
+            /* 20% 不透明度 (80% 完全透明) 黑色/藍色遮罩，讓海浪影片大幅度透出 */
+            .ocean-overlay {
+                position: absolute;
+                top: 0; left: 0; right: 0; bottom: 0;
+                background: rgba(10, 35, 50, 0.2); 
+                z-index: 1;
+            }
+
+            .ocean-content {
+                position: relative;
+                z-index: 2;
+            }
+
+            /* 呼吸圈：調整為 20% 可見度 / 80% 透明度 (rgba 0.2) */
+            #breathing-circle {
+                width: 200px;
+                height: 200px;
+                margin: 20px auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: transform 4s ease-in-out;
+                background: rgba(255, 255, 255, 0.2); /* 20% 可見度 */
+                backdrop-filter: blur(4px);
+                border-radius: 50%;
+                border: 2px solid rgba(255, 255, 255, 0.4);
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            }
+
+            #lung-icon {
+                filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.15));
+                transition: all 0.3s ease;
+            }
+
+            #breath-status {
+                margin-top: 15px;
+                font-size: 22px;
+                font-weight: bold;
+                color: #004d4d;
+                text-shadow: 0 1px 2px rgba(255,255,255,0.8);
+            }
+
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+            }
+
+            .inhale { transform: scale(1.35); }
+            .exhale { transform: scale(1); }
+
+            /* Treehole Cards */
+            .custom-block-wrap {
+                background: var(--white-color);
+                border-radius: 20px;
+                overflow: hidden;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+                padding: 25px;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                border-top: 5px solid var(--primary-color);
+            }
+
+            .custom-block-body p {
+                font-size: 15px;
+                color: #555;
+            }
+
+            .custom-block-meta {
+                font-size: 13px;
+                color: #888;
+                border-top: 1px solid var(--border-color);
+                padding-top: 15px;
+                margin-top: 15px;
+            }
+
+            /* Treehole Section Background */
+            #section_treehole {
+                position: relative;
+                background-image: url('tree.jpg');
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+                color: #ffffff;
+            }
+
+            #section_treehole::before {
+                content: "";
+                position: absolute;
+                top: 0; left: 0; right: 0; bottom: 0;
+                background: rgba(255, 255, 255, 0.75);
+                z-index: 0;
+            }
+
+            #section_treehole .container {
+                position: relative;
+                z-index: 1;
+            }
+
+            #section_treehole h2,
+            #section_treehole p {
+                color: var(--dark-color);
+                text-shadow: 0 1px 2px rgba(255,255,255,0.6);
+            }
+
+            #section_treehole .bg-light {
+                background-color: rgba(255, 255, 255, 0.92) !important;
+            }
+
+            /* Static Image Map Styling */
+            .map-container {
+                position: relative;
+                width: 100%;
+                max-width: 920px;
+                margin: 0 auto;
+                aspect-ratio: 920 / 614;
+                background-image: url('mapbg.jpg');
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                border-radius: 20px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+                overflow: hidden;
+            }
+
+            .map-marker {
+                position: absolute;
+                width: 22px;
+                height: 22px;
+                background: #5bc0be;
+                border: 2px solid #ffffff;
+                border-radius: 50% 50% 50% 0;
+                transform: rotate(-45deg);
+                cursor: pointer;
+                box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+                transition: all 0.2s ease;
+                z-index: 10;
+            }
+
+            .map-marker:hover,
+            .map-marker.active {
+                background: #e08a58;
+                transform: rotate(-45deg) scale(1.25);
+                z-index: 20;
+            }
+
+            .map-marker::after {
+                content: '';
+                position: absolute;
+                width: 8px;
+                height: 8px;
+                background: #ffffff;
+                border-radius: 50%;
+                top: 5px;
+                left: 5px;
+            }
+
+            .info-popup {
+                position: absolute;
+                background: #ffffff;
+                border-radius: 12px;
+                padding: 12px 14px;
+                box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+                max-width: 280px;
+                z-index: 30;
+                display: none;
+                font-size: 13.5px;
+                line-height: 1.5;
+                border: 1px solid rgba(91, 192, 190, 0.3);
+            }
+
+            .info-popup b {
+                color: #242424;
+                font-size: 14.5px;
+            }
+
+            .info-popup a {
+                color: #5bc0be;
+                font-weight: 600;
+            }
+
+            /* Footer */
+            .site-footer {
+                background-color: #242424;
+                padding: 60px 0 30px;
+                color: #a7a7a7;
+            }
+
+            .site-footer h5 {
+                color: var(--white-color);
+                margin-bottom: 20px;
+            }
+
+            .site-footer a {
+                color: #a7a7a7;
+                text-decoration: none;
+            }
+
+            .site-footer a:hover {
+                color: var(--white-color);
+            }
+
+            .site-footer-bottom {
+                border-top: 1px solid #333;
+                margin-top: 40px;
+                padding-top: 20px;
+            }
+
+            /* Language Switcher */
+            .lang-switch {
+                display: flex;
+                gap: 4px;
+                background: #f8f9fa;
+                padding: 4px;
+                border-radius: 999px;
+                margin-left: 12px;
+            }
+            .lang-switch button {
+                border: 0;
+                background: transparent;
+                color: var(--dark-color);
+                font-weight: 700;
+                font-size: 14px;
+                padding: 6px 12px;
+                border-radius: 999px;
+                cursor: pointer;
+            }
+            .lang-switch button.active {
+                background: var(--primary-color);
+                color: #fff;
+            }
+        </style>
+    </head>
+    
+    <body id="section_1">
+
+        <!-- Top Header Bar -->
+        <header class="site-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-12 d-flex flex-wrap">
+                        <p class="d-flex me-4 mb-0">
+                            <i class="bi-geo-alt me-2"></i> 融心堂- 精神健康 
+                        </p>
+                        <p class="d-flex mb-0">
+                            <i class="bi-envelope me-2"></i>
+                            <a href="mailto:support@mindcorner.org">support@mindcorner.org</a>
+                        </p>
+                    </div>
+
+                    <div class="col-lg-3 col-12 ms-auto d-lg-block d-none">
+                        <ul class="social-icon">
+                            <li class="social-icon-item"><a href="#" class="social-icon-link bi-facebook"></a></li>
+                            <li class="social-icon-item"><a href="#" class="social-icon-link bi-instagram"></a></li>
+                            <li class="social-icon-item"><a href="#" class="social-icon-link bi-youtube"></a></li>
+                            <li class="social-icon-item"><a href="#" class="social-icon-link bi-whatsapp"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navbar Section -->
+        <nav class="navbar navbar-expand-lg sticky-top shadow-sm">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <span data-i18n="brand">融心堂- 精神健康</span>
+                    <small data-i18n="brandSub">Mind Corner Support</small>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="modal" data-bs-target="#aboutModal" data-i18n="navAbout">關於我們</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#section_mood" data-i18n="navMood">心情選擇</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#section_breath" data-i18n="navBreath">呼吸放鬆</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#section_treehole" data-i18n="navTree">樹洞寄語</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#section_map" data-i18n="navMap">社區資源</a></li>
+                        <li class="nav-item ms-3"><a class="nav-link custom-btn" href="tel:18111" data-i18n="hotline">求助熱線 18111</a></li>
+                        <li class="nav-item ms-2 d-flex align-items-center">
+                            <div class="lang-switch" role="group" aria-label="Language">
+                                <button type="button" data-lang="zh-Hant" class="active">繁</button>
+                                <button type="button" data-lang="zh-Hans">简</button>
+                                <button type="button" data-lang="en">EN</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <main>
+            <!-- 輪播動態 Banner (Hero Slide Show) -->
+            <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="hero-slide-item" style="background-image: url('https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=1600&q=80');">
+                            <div class="container text-center hero-slide-content">
+                                <div class="row">
+                                    <div class="col-lg-10 mx-auto">
+                                        <h1 data-i18n="hero1h">照顧他人前，先抱抱自己</h1>
+                                        <p data-i18n="hero1p">在這裏稍作休息，尋找適合你的社區支援與情緒舒緩練習。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="hero-slide-item" style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80');">
+                            <div class="container text-center hero-slide-content">
+                                <div class="row">
+                                    <div class="col-lg-10 mx-auto">
+                                        <h1 data-i18n="hero2h">給心靈一個喘息空間</h1>
+                                        <p data-i18n="hero2p">聽聽溫柔海浪聲，讓緊張與壓迫感隨波浪慢慢消散。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="hero-slide-item" style="background-image: url('https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1600&q=80');">
+                            <div class="container text-center hero-slide-content">
+                                <div class="row">
+                                    <div class="col-lg-10 mx-auto">
+                                        <h1 data-i18n="hero3h">同路人與你並肩同行</h1>
+                                        <p data-i18n="hero3p">全港 25 間社區中心及樹洞空間，時刻準備聆聽你的聲音。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">上一張</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">下一張</span>
+                </button>
+            </div>
+
+            <!-- 1. 心情選擇器 -->
+            <section class="section-padding" id="section_mood">
+                <div class="container">
+                    <div class="row text-center mb-5">
+                        <div class="col-lg-10 mx-auto">
+                            <h2 data-i18n="moodTitle">1. 你此刻的心情如何？</h2>
+                            <p data-i18n="moodLead">點擊適合你當前狀態的選項，獲取即時建議與支援：</p>
+                        </div>
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="col-lg-3 col-md-6 col-12">
+                            <div class="featured-block" data-mood="anxiety" onclick="selectMood('焦慮', this)">
+                                <i class="bi-emoji-dizzy featured-block-icon"></i>
+                                <p class="featured-block-text">焦慮不安</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-12">
+                            <div class="featured-block" data-mood="tired" onclick="selectMood('體力透支', this)">
+                                <i class="bi-battery-charging featured-block-icon"></i>
+                                <p class="featured-block-text">體力透支</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-12">
+                            <div class="featured-block" data-mood="lonely" onclick="selectMood('孤單', this)">
+                                <i class="bi-person-heart featured-block-icon"></i>
+                                <p class="featured-block-text">感到孤單</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-12">
+                            <div class="featured-block" data-mood="helpless" onclick="selectMood('無助', this)">
+                                <i class="bi-cloud-rain featured-block-icon"></i>
+                                <p class="featured-block-text">茫然無助</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 心靈小貼士顯示區塊 -->
+                    <div class="row mt-4">
+                        <div class="col-lg-10 mx-auto">
+                            <div id="mood-response" class="alert alert-info p-4 border-0 shadow-sm rounded-4 text-center" style="display: none;">
+                                <h5 class="alert-heading mb-2"><i class="bi-heart-fill text-danger me-2"></i>心靈小貼士</h5>
+                                <p id="mood-text" class="mb-0 fs-6 text-dark"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 小程式：今日心情與運氣抽籤 -->
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto text-center">
+                            <div class="fortune-box">
+                                <h4 class="mb-2"><i class="bi-stars text-warning me-2"></i>今日心情與運氣抽籤</h4>
+                                <p class="small text-muted mb-3">抽一張專屬你的靈感籤文，為今天加點正能量！</p>
+                                
+                                <button id="draw-btn" class="fortune-btn" onclick="drawFortune()">
+                                    <i class="bi-box-seam me-2" id="draw-icon"></i><span id="draw-btn-text">立即抽籤</span>
+                                </button>
+
+                                <div id="fortune-result" style="display: none;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- 2. 30秒深度呼吸放鬆 (20% 不透明度 / 80% 海浪高透明度透出) -->
+            <section class="section-padding ocean-video-section" id="section_breath">
+                <!-- 高畫質真實海浪沖刷岸邊背景影片 -->
+                <video class="ocean-video-bg" autoplay loop muted playsinline>
+                    <source src="https://assets.mixkit.co/videos/preview/mixkit-waves-in-the-water-1164-large.mp4" type="video/mp4">
+                </video>
+                
+                <!-- 20% 不透明度遮罩，讓海浪清晰顯現 -->
+                <div class="ocean-overlay"></div>
+
+                <div class="container ocean-content">
+                    <div class="row text-center mb-4">
+                        <div class="col-lg-8 mx-auto">
+                            <h2 class="text-white text-shadow">2. 30秒深度呼吸放鬆</h2>
+                            <p class="text-white fw-semibold text-shadow">跟隨肺部公仔的膨脹與收縮，深呼吸減緩壓力。（伴隨舒緩的海浪拍岸聲）</p>
+                        </div>
+                    </div>
+
+                    <div class="row text-center">
+                        <div class="col-12">
+                            <div id="breathing-circle">
+                                <svg id="lung-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="120" height="120">
+                                    <path d="M32 10 L32 28 M32 22 L24 28 M32 22 L40 28" stroke="#004d4d" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                    <path d="M24 28 C14 28 8 36 8 46 C8 56 18 58 26 50 C28 48 26 34 24 28 Z" fill="#006666"/>
+                                    <path d="M40 28 C50 28 56 36 56 46 C56 56 46 58 38 50 C36 48 38 34 40 28 Z" fill="#006666"/>
+                                    <circle cx="18" cy="40" r="2" fill="#ffffff"/>
+                                    <circle cx="46" cy="40" r="2" fill="#ffffff"/>
+                                    <path d="M16 45 Q18 48 20 45" stroke="#ffffff" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                                    <path d="M44 45 Q46 48 48 45" stroke="#ffffff" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                                </svg>
+                                <span id="breath-status">準備</span>
+                            </div>
+
+                            <button class="custom-btn btn mt-3 shadow" id="start-breath-btn" onclick="startBreathing()">開始 30 秒呼吸</button>
+                            <p id="breath-timer" class="fw-bold mt-3 fs-5 text-white text-shadow"></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. 樹洞寄語 -->
+            <section class="section-padding" id="section_treehole">
+                <div class="container">
+                    <div class="row mb-5 text-center">
+                        <div class="col-lg-8 mx-auto">
+                            <h2 data-i18n="treeTitle">3. 樹洞寄語</h2>
+                            <p data-i18n="treeLead">留下你想說的話，或為其他病友與照顧者送上鼓勵：</p>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center mb-5">
+                        <div class="col-lg-8">
+                            <form id="note-form" onsubmit="addNote(event)" class="bg-light p-4 rounded-4 shadow-sm">
+                                <div class="mb-3">
+                                    <input type="text" id="author-input" class="form-control form-control-lg fs-6" placeholder="你的稱呼 / 暱稱（選填，預設為「匿名」）" data-i18n-placeholder="treeNickPh">
+                                </div>
+                                <div class="mb-3">
+                                    <textarea id="note-input" rows="3" class="form-control form-control-lg fs-6" placeholder="寫下你的心情或鼓勵說話..." data-i18n-placeholder="treeBodyPh" required></textarea>
+                                </div>
+                                <button type="submit" class="custom-btn btn w-100" data-i18n="treeSend">發布到樹洞</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="row g-4" id="notes-container">
+                        <div class="col-md-6 col-lg-4">
+                            <div class="custom-block-wrap">
+                                <div class="custom-block-body">
+                                    <p>「今天媽媽情況有改善，大家一起加油，照顧家人的同時也要記得休息！」</p>
+                                </div>
+                                <div class="custom-block-meta d-flex justify-content-between">
+                                    <span><i class="bi-person me-1"></i> 照顧者小陳</span>
+                                    <span>2026-09-07 14:30</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <div class="custom-block-wrap">
+                                <div class="custom-block-body">
+                                    <p>「等待檢查報告的過程真的很煎熬，希望能順順利利。」</p>
+                                </div>
+                                <div class="custom-block-meta d-flex justify-content-between">
+                                    <span><i class="bi-person me-1"></i> 病友小明</span>
+                                    <span>2026-09-07 16:15</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. 社區資源地圖搜尋 -->
+            <section class="section-padding section-bg" id="section_map">
+                <div class="container">
+                    <div class="row mb-4 text-center">
+                        <div class="col-lg-8 mx-auto">
+                            <h2 data-i18n="mapTitle">4. 尋找附近的精神健康綜合社區中心 (ICCMW)</h2>
+                            <p data-i18n="mapLead">全港共有 25 間由社會福利署資助的精神健康綜合社區中心，提供一站式社區精神健康支援：</p>
+                        </div>
+                    </div>
+
+                    <div class="row mb-4 justify-content-center">
+                        <div class="col-md-6">
+                            <select id="district-select" onchange="searchLocation()" class="form-select form-select-lg fs-6 rounded-pill border-2">
+                                <option value="" data-i18n="mapSelectPh">-- 請選擇服務地區 --</option>
+                                <optgroup label="香港島">
+                                    <option value="cw">中西區 - 港島中心 (新生精神康復會)</option>
+                                    <option value="wanchai">灣仔區 - 樂和基地 / 心樂軒 (浸信會愛羣社會服務處)</option>
+                                    <option value="eastern_north">東區(北) - 港島東中心 (新生精神康復會)</option>
+                                    <option value="eastern_south">東區(南) - 恆樂坊 (利民會)</option>
+                                    <option value="southern">南區 - 華思中心 (利民會)</option>
+                                </optgroup>
+                                <optgroup label="九龍">
+                                    <option value="ytm">油尖旺 - 友愛坊 (浸信會愛羣社會服務處)</option>
+                                    <option value="ssp">深水埗 - 樂道坊 (利民會)</option>
+                                    <option value="kowloon_city">九龍城 - 樂民中心 (香港心理衛生會)</option>
+                                    <option value="wts">黃大仙 - 樂晴軒 (香港路德會社會服務處)</option>
+                                    <option value="kt_east">觀塘東 - 樂活中心 (基督教家庭服務中心)</option>
+                                    <option value="kt_west">觀塘西 - 觀塘綜合服務隊 (浸信會愛羣社會服務處)</option>
+                                </optgroup>
+                                <optgroup label="新界東">
+                                    <option value="sk">西貢 / 將軍澳 - 藝亮心靈服務中心 (基督教家庭服務中心)</option>
+                                    <option value="shatin_north">沙田北 - 恆康中心 (新生精神康復會)</option>
+                                    <option value="shatin_south">沙田南 - 賽馬會恆悅坊 (新生精神康復會)</option>
+                                    <option value="tai_po">大埔 - 安居中心 (新生精神康復會)</option>
+                                    <option value="north">北區 - 朗晴居 (香港路德會社會服務處)</option>
+                                </optgroup>
+                                <optgroup label="新界西">
+                                    <option value="tw">荃灣 - 怡樂軒 (香港街坊福利會)</option>
+                                    <option value="tm_east">屯門東 - 屯門心靈會所 (新生精神康復會)</option>
+                                    <option value="tm_west">屯門西 - 屯門社區健康中心 (利民會)</option>
+                                    <option value="yl_east">元朗東 - 朗和坊 (浸信會愛羣社會服務處)</option>
+                                    <option value="yl_west">元朗西 - 賽馬會朗晴居 (新生精神康復會)</option>
+                                    <option value="kwt_south">葵涌南 - 葵涌心靈休憩站 (新生精神康復會)</option>
+                                    <option value="kwt_north">葵涌北 - 葵青心靈健康中心 (香港明愛)</option>
+                                    <option value="tsty">青衣 / 荃灣西 - 青衣心靈港灣 (新生精神康復會)</option>
+                                    <option value="islands">離島 - 離島心靈驛站 (新生精神康復會)</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="map-container" id="map-container">
+                                <div id="info-popup" class="info-popup"></div>
+                            </div>
+                            <p class="text-center text-muted small mt-3 mb-0">點擊地圖上的標記，或由上方選單選擇地區，即可查看中心資料。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- 「關於我們」Modal 彈出視窗 -->
+        <div class="modal fade" id="aboutModal" tabindex="-1" aria-labelledby="aboutModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content rounded-4 border-0 shadow">
+                    <div class="modal-header border-bottom-0 pb-0 pe-4 pt-4">
+                        <h3 class="modal-title" id="aboutModalLabel">關於我們</h3>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body p-4 p-md-5">
+                        <p class="lead text-dark fw-bold mb-3">結合「醫療」與「社工」的雙專業，用心守護每個社群</p>
+                        
+                        <p>大家好，我是 <strong>Mabel</strong>，是一位畢業於香港理工大學的<strong>註冊社工</strong>及<strong>註冊護士（普通科）</strong>。</p>
+                        <p>於照顧社群（長者、兒童及青少年、病人），在多年的實踐中，我在院舍及社區界別均累積了豐富的實戰經驗。</p>
+                        
+                        <div class="row g-3 my-3">
+                            <div class="col-md-4">
+                                <div class="about-card">
+                                    <h5><i class="bi-heart-pulse-fill me-1"></i> 長者服務</h5>
+                                    <p class="small mb-0">熟悉長者的身心社靈需要，提供適切的照顧規劃及社區支援。</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="about-card">
+                                    <h5><i class="bi-people-fill me-1"></i> 兒童及青少年發展</h5>
+                                    <p class="small mb-0">關注兒童及青少年的成長歷程，提供輔導及發展性活動支援。</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="about-card">
+                                    <h5><i class="bi-hospital-fill me-1"></i> 病人護理</h5>
+                                    <p class="small mb-0">憑藉普通科護士的專業背景，為病患提供專業的醫療護理及復康指導。</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="mb-0">我深信，優質的服務不僅需要紮實的專業知識，更需要真誠的關懷與同理心。無論是在院舍的照顧環境，還是深入社區的前線工作，我都致力於結合「醫療」與「社工」的專業所長，為每一位服務對象提供全面、細緻且具尊嚴的支援。</p>
+                    </div>
+                    <div class="modal-footer border-top-0 pt-0 pe-4 pb-4">
+                        <button type="button" class="btn custom-btn" data-bs-dismiss="modal">關閉</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Section -->
+        <footer class="site-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-12 mb-4">
+                        <h5>融心堂- 精神健康 </h5>
+                        <p class="mt-3" data-i18n="footerDesc">致力為香港照顧者與病友提供隨手可及的精神健康資訊與情緒喘息空間。</p>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-12 mb-4">
+                        <h5 data-i18n="footerLinks">快速連結</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><a data-bs-toggle="modal" data-bs-target="#aboutModal" style="cursor: pointer;" data-i18n="navAbout">關於我們</a></li>
+                            <li class="mb-2"><a href="#section_mood" data-i18n="navMood">心情選擇</a></li>
+                            <li class="mb-2"><a href="#section_breath">呼吸放鬆練習</a></li>
+                            <li class="mb-2"><a href="#section_treehole" data-i18n="navTree">樹洞寄語</a></li>
+                            <li class="mb-2"><a href="#section_map">社區資源地圖</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <h5 data-i18n="footerHotlines">緊急求助熱線</h5>
+                        <p class="mb-2"><i class="bi-telephone me-2"></i> 精神健康專線：<a href="tel:18111">18111</a></p>
+                        <p class="mb-2"><i class="bi-telephone me-2"></i> 撒瑪利亞防止自殺會：<a href="tel:23892222">2389 2222</a></p>
+                        <p class="mb-2"><i class="bi-telephone me-2"></i> 生命熱線：<a href="tel:23820000">2382 0000</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="site-footer-bottom">
+                <div class="container text-center">
+                    <p class="mb-0">Copyright © 2026 融心堂- 精神健康 .</p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- JS 腳本區塊 -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+                <script>
+            // JS 控制自動輪播組件初始化
+            document.addEventListener('DOMContentLoaded', function () {
+                const myCarousel = document.querySelector('#heroCarousel');
+                new bootstrap.Carousel(myCarousel, {
+                    interval: 5000,
+                    ride: 'carousel',
+                    pause: 'hover'
+                });
+            });
+
+            // 1. 心情選擇器邏輯
+            function selectMood(mood, element) {
+                document.querySelectorAll('.featured-block').forEach(b => b.classList.remove('active'));
+                element.classList.add('active');
+
+                const responseDiv = document.getElementById('mood-response');
+                const responseText = document.getElementById('mood-text');
+                responseDiv.style.display = 'block';
+
+                if(mood === '焦慮') {
+                    responseText.innerText = '感覺焦慮時，試下將注意力拉回呼吸。推薦你做下方的 30秒呼吸練習，或者聯絡情緒支援熱線。';
+                } else if(mood === '體力透支') {
+                    responseText.innerText = '辛苦你了！照顧是一場長跑，不妨了解下社區嘅「喘息服務（臨時看顧）」，畀自己休息一下。';
+                } else if(mood === '孤單') {
+                    responseText.innerText = '你並不孤單。去「樹洞寄語」睇睇其他同路人嘅分享，或者參加社區嘅照顧者互助小組吧。';
+                } else if(mood === '無助') {
+                    responseText.innerText = '感到無助時，一步一步嚟。可以在下方地圖尋找鄰近嘅精神健康綜合社區中心 (ICCMW) 社工協助。';
+                }
+            }
+
+            // 1.1 抽籤小程式邏輯與籤文資料庫
+            const fortunes = [
+                {
+                    title: "【大吉】清心安舒籤",
+                    luck: "★★★★★",
+                    text: "今日運氣上佳！適宜給自己一個微小的犒賞，一杯暖茶或一刻靜謐，都能帶給你滿滿能量。",
+                    advice: "「允許自己慢下來，也是一種前進。」"
+                },
+                {
+                    title: "【上吉】雲開見月籤",
+                    luck: "★★★★☆",
+                    text: "困惑你的事情即將迎來曙光。保持耐心，你所付出的努力與關懷，時間都會給予回應。",
+                    advice: "「深呼吸，相信事情會自然有最好的安排。」"
+                },
+                {
+                    title: "【中吉】溫柔相伴籤",
+                    luck: "★★★☆☆",
+                    text: "今天適合與身邊的同路人分享感受，一個微笑或一句問候，會為你和他人帶來無限溫暖。",
+                    advice: "「你並不孤單，總有人願意傾聽你的聲音。」"
+                },
+                {
+                    title: "【小吉】蓄勢待發籤",
+                    luck: "★★★☆☆",
+                    text: "今天體力或心情可能稍有疲憊，但這是身體提示你要充電的訊號，不必勉強自己達到完美。",
+                    advice: "「照顧別人之前，先好好愛護自己。」"
+                },
+                {
+                    title: "【平安】心寬福自至籤",
+                    luck: "★★★★☆",
+                    text: "平淡就是福。今日適合放鬆繃緊的肌肉，聽聽音樂或體驗下方海浪呼吸，享受平靜時光。",
+                    advice: "「放下沉重的擔子，給心靈一個喘息空間。」"
+                }
+            ];
+
+            function drawFortune() {
+                const btn = document.getElementById('draw-btn');
+                const icon = document.getElementById('draw-icon');
+                const btnText = document.getElementById('draw-btn-text');
+                const resultDiv = document.getElementById('fortune-result');
+
+                btn.disabled = true;
+                icon.className = "bi-arrow-repeat me-2 shaking d-inline-block";
+                btnText.innerText = "搖籤中...";
+
+                resultDiv.style.display = "none";
+
+                setTimeout(() => {
+                    const randomIndex = Math.floor(Math.random() * fortunes.length);
+                    const selected = fortunes[randomIndex];
+
+                    resultDiv.innerHTML = `
+                        <div class="fortune-result-card text-center">
+                            <h4 class="text-primary fw-bold mb-2">${selected.title}</h4>
+                            <div class="text-warning mb-3 fs-5">${selected.luck}</div>
+                            <p class="text-dark mb-3">${selected.text}</p>
+                            <div class="p-2 bg-white rounded-3 border text-secondary fst-italic">
+                                <small>${selected.advice}</small>
+                            </div>
+                        </div>
+                    `;
+
+                    resultDiv.style.display = "block";
+
+                    btn.disabled = false;
+                    icon.className = "bi-box-seam me-2";
+                    btnText.innerText = "再抽一次";
+                }, 1000);
+            }
+
+            // 2. Web Audio API 合成擬真海浪聲
+            let oceanAudioCtx = null;
+            let oceanGainNode = null;
+            let oceanFilterNode = null;
+            let noiseNode = null;
+
+            function initOceanSound() {
+                if (!oceanAudioCtx) {
+                    oceanAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                }
+                if (oceanAudioCtx.state === 'suspended') {
+                    oceanAudioCtx.resume();
+                }
+
+                if (noiseNode) return;
+
+                const bufferSize = oceanAudioCtx.sampleRate * 5;
+                const buffer = oceanAudioCtx.createBuffer(1, bufferSize, oceanAudioCtx.sampleRate);
+                const output = buffer.getChannelData(0);
+                let b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0;
+                for (let i = 0; i < bufferSize; i++) {
+                    const white = Math.random() * 2 - 1;
+                    b0 = 0.99886 * b0 + white * 0.0555179;
+                    b1 = 0.99332 * b1 + white * 0.0750759;
+                    b2 = 0.96900 * b2 + white * 0.1538520;
+                    b3 = 0.86650 * b3 + white * 0.3104856;
+                    b4 = 0.55000 * b4 + white * 0.5329522;
+                    b5 = -0.7616 * b5 - white * 0.0168980;
+                    output[i] = b0 + b1 + b2 + b3 + b4 + b5 + b6 + white * 0.5362;
+                    output[i] *= 0.11;
+                    b6 = white * 0.115926;
+                }
+
+                noiseNode = oceanAudioCtx.createBufferSource();
+                noiseNode.buffer = buffer;
+                noiseNode.loop = true;
+
+                oceanFilterNode = oceanAudioCtx.createBiquadFilter();
+                oceanFilterNode.type = 'lowpass';
+                oceanFilterNode.frequency.setValueAtTime(250, oceanAudioCtx.currentTime);
+
+                oceanGainNode = oceanAudioCtx.createGain();
+                oceanGainNode.gain.setValueAtTime(0.01, oceanAudioCtx.currentTime);
+
+                noiseNode.connect(oceanFilterNode);
+                oceanFilterNode.connect(oceanGainNode);
+                oceanGainNode.connect(oceanAudioCtx.destination);
+
+                noiseNode.start();
+            }
+
+            function modulateOceanWave(isInhale, duration) {
+                if (!oceanAudioCtx || !oceanGainNode || !oceanFilterNode) return;
+
+                const now = oceanAudioCtx.currentTime;
+                if (isInhale) {
+                    oceanGainNode.gain.cancelScheduledValues(now);
+                    oceanGainNode.gain.linearRampToValueAtTime(0.25, now + duration);
+                    
+                    oceanFilterNode.frequency.cancelScheduledValues(now);
+                    oceanFilterNode.frequency.linearRampToValueAtTime(800, now + duration);
+                } else {
+                    oceanGainNode.gain.cancelScheduledValues(now);
+                    oceanGainNode.gain.linearRampToValueAtTime(0.03, now + duration);
+
+                    oceanFilterNode.frequency.cancelScheduledValues(now);
+                    oceanFilterNode.frequency.linearRampToValueAtTime(200, now + duration);
+                }
+            }
+
+            function stopOceanSound() {
+                if (oceanGainNode && oceanAudioCtx) {
+                    const now = oceanAudioCtx.currentTime;
+                    oceanGainNode.gain.cancelScheduledValues(now);
+                    oceanGainNode.gain.linearRampToValueAtTime(0.0001, now + 1.5);
+                    setTimeout(() => {
+                        if (noiseNode) {
+                            noiseNode.stop();
+                            noiseNode.disconnect();
+                            noiseNode = null;
+                        }
+                    }, 1500);
+                }
+            }
+
+            let breathInterval;
+            function startBreathing() {
+                const circle = document.getElementById('breathing-circle');
+                const statusText = document.getElementById('breath-status');
+                const timerText = document.getElementById('breath-timer');
+                
+                initOceanSound();
+
+                let timeLeft = 30;
+                timerText.innerText = `剩餘時間：${timeLeft} 秒`;
+                
+                let isInhaling = true;
+                statusText.innerText = "吸氣...";
+                circle.classList.add('inhale');
+                modulateOceanWave(true, 4);
+
+                clearInterval(breathInterval);
+                breathInterval = setInterval(() => {
+                    timeLeft--;
+                    timerText.innerText = `剩餘時間：${timeLeft} 秒`;
+
+                    if (timeLeft % 4 === 0 && timeLeft > 0) {
+                        isInhaling = !isInhaling;
+
+                        if (isInhaling) {
+                            statusText.innerText = "吸氣...";
+                            circle.classList.remove('exhale');
+                            circle.classList.add('inhale');
+                            modulateOceanWave(true, 4);
+                        } else {
+                            statusText.innerText = "呼氣...";
+                            circle.classList.remove('inhale');
+                            circle.classList.add('exhale');
+                            modulateOceanWave(false, 4);
+                        }
+                    }
+
+                    if (timeLeft <= 0) {
+                        clearInterval(breathInterval);
+                        statusText.innerText = "完成";
+                        circle.classList.remove('inhale', 'exhale');
+                        timerText.innerText = "做得好！希望你的心情放鬆了一點。";
+                        stopOceanSound();
+                    }
+                }, 1000);
+            }
+
+            function escapeHTML(str) {
+                return str.replace(/[&<>'"]/g, 
+                    tag => ({
+                        '&': '&amp;',
+                        '<': '&lt;',
+                        '>': '&gt;',
+                        "'": '&#39;',
+                        '"': '&quot;'
+                    }[tag] || tag)
+                );
+            }
+
+            // 3. 樹洞留言邏輯
+            function addNote(event) {
+                event.preventDefault();
+                const noteInput = document.getElementById('note-input');
+                const authorInput = document.getElementById('author-input');
+                const container = document.getElementById('notes-container');
+
+                if(noteInput.value.trim() !== '') {
+                    const authorName = authorInput.value.trim() !== '' ? authorInput.value.trim() : '匿名';
+                    
+                    const now = new Date();
+                    const formattedTime = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+
+                    const newCol = document.createElement('div');
+                    newCol.className = 'col-md-6 col-lg-4';
+                    newCol.innerHTML = `
+                        <div class="custom-block-wrap">
+                            <div class="custom-block-body">
+                                <p>「${escapeHTML(noteInput.value)}」</p>
+                            </div>
+                            <div class="custom-block-meta d-flex justify-content-between">
+                                <span><i class="bi-person me-1"></i> ${escapeHTML(authorName)}</span>
+                                <span>${formattedTime}</span>
+                            </div>
+                        </div>
+                    `;
+
+                    container.prepend(newCol);
+                    noteInput.value = '';
+                    authorInput.value = '';
+                }
+            }
+
+            // 4. 靜態地圖初始化 (使用 mapbg.jpg 作為背景)
+            // 各中心在圖片上的相對位置 (left%, top%)，已根據香港地理大致對應
+            const markerPositions = {
+                cw: { left: 49, top: 75 },
+                wanchai: { left: 53, top: 73 },
+                eastern_north: { left: 57, top: 70 },
+                eastern_south: { left: 61, top: 77 },
+                southern: { left: 45, top: 81 },
+                ytm: { left: 51, top: 65 },
+                ssp: { left: 47, top: 59 },
+                kowloon_city: { left: 53, top: 57 },
+                wts: { left: 56, top: 53 },
+                kt_east: { left: 62, top: 59 },
+                kt_west: { left: 59, top: 61 },
+                sk: { left: 68, top: 54 },
+                shatin_north: { left: 60, top: 40 },
+                shatin_south: { left: 58, top: 43 },
+                tai_po: { left: 55, top: 28 },
+                north: { left: 48, top: 22 },
+                tw: { left: 44, top: 48 },
+                tm_east: { left: 30, top: 41 },
+                tm_west: { left: 27, top: 44 },
+                yl_east: { left: 35, top: 34 },
+                yl_west: { left: 32, top: 31 },
+                kwt_south: { left: 46, top: 51 },
+                kwt_north: { left: 47, top: 49 },
+                tsty: { left: 41, top: 54 },
+                islands: { left: 22, top: 67 }
+            };
+
+            const iccmwLocations = {
+                cw: { lat: 22.2855, lng: 114.1378, name: "新生精神康復會 - 港島中心", agency: "新生精神康復會", address: "香港西營盤高街2號西營盤社區綜合大樓3樓", tel: "2858 2013" },
+                wanchai: { lat: 22.2778, lng: 114.1730, name: "浸信會愛羣社會服務處 - 樂和基地 / 心樂軒", agency: "浸信會愛羣社會服務處", address: "香港灣仔愛群道36號7樓", tel: "3413 1600" },
+                eastern_north: { lat: 22.2910, lng: 114.1995, name: "新生精神康復會 - 港島東中心", agency: "新生精神康復會", address: "香港北角百福道21號香港青年協會大廈", tel: "2552 0321" },
+                eastern_south: { lat: 22.2821, lng: 114.2235, name: "利民會 - 恆樂坊", agency: "利民會", address: "香港柴灣興華(一)邨興翠樓地下1-5號", tel: "2558 0220" },
+                southern: { lat: 22.2478, lng: 114.1565, name: "利民會 - 華思中心", agency: "利民會", address: "香港華富邨華清樓地下113-118室", tel: "2550 7808" },
+                ytm: { lat: 22.3125, lng: 114.1702, name: "浸信會愛羣社會服務處 - 友愛坊", agency: "浸信會愛羣社會服務處", address: "九龍油麻地彌敦道476號2樓", tel: "2332 0332" },
+                ssp: { lat: 22.3312, lng: 114.1598, name: "利民會 - 樂道坊", agency: "利民會", address: "九龍深水埗長沙灣道303號恒隆大廈3樓", tel: "2720 0601" },
+                kowloon_city: { lat: 22.3218, lng: 114.1855, name: "香港心理衛生會 - 樂民中心", agency: "香港心理衛生會", address: "九龍土瓜灣樂民新村F座地下", tel: "2713 0203" },
+                wts: { lat: 22.3415, lng: 114.1951, name: "香港路德會社會服務處 - 樂晴軒", agency: "香港路德會社會服務處", address: "九龍黃大仙下邨龍樂樓地下", tel: "2326 1332" },
+                kt_east: { lat: 22.3155, lng: 114.2285, name: "基督教家庭服務中心 - 樂活中心", agency: "基督教家庭服務中心", address: "九龍觀塘翠屏道3號8樓", tel: "2727 1234" },
+                kt_west: { lat: 22.3190, lng: 114.2150, name: "浸信會愛羣社會服務處 - 觀塘綜合服務隊", agency: "浸信會愛羣社會服務處", address: "九龍牛頭角彩盈邨盈安樓地下", tel: "2246 5255" },
+                sk: { lat: 22.3085, lng: 114.2612, name: "基督教家庭服務中心 - 藝亮心靈服務中心", agency: "基督教家庭服務中心", address: "新界將軍澳景林邨景棉樓地下", tel: "3521 1611" },
+                shatin_north: { lat: 22.3814, lng: 114.1882, name: "新生精神康復會 - 恆康中心", agency: "新生精神康復會", address: "新界沙田沙角邨綠圍樓地下1-8號", tel: "2648 8311" },
+                shatin_south: { lat: 22.3688, lng: 114.1780, name: "新生精神康復會 - 賽馬會恆悅坊", agency: "新生精神康復會", address: "新界大圍美田邨美全樓地下", tel: "2602 8131" },
+                tai_po: { lat: 22.4510, lng: 114.1685, name: "新生精神康復會 - 安居中心", agency: "新生精神康復會", address: "新界大埔大元邨泰民樓地下101-108號", tel: "2664 2101" },
+                north: { lat: 22.4965, lng: 114.1388, name: "香港路德會社會服務處 - 朗晴居", agency: "香港路德會社會服務處", address: "新界粉嶺祥華邨祥裕樓地下", tel: "2669 8225" },
+                tw: { lat: 22.3715, lng: 114.1142, name: "香港街坊福利會 - 怡樂軒", agency: "香港街坊福利會", address: "新界荃灣福來邨永嘉樓地下", tel: "2415 0101" },
+                tm_east: { lat: 22.3955, lng: 113.9780, name: "新生精神康復會 - 屯門心靈會所", agency: "新生精神康復會", address: "新界屯門良景邨良傑樓地下", tel: "2463 3111" },
+                tm_west: { lat: 22.3880, lng: 113.9650, name: "利民會 - 屯門社區健康中心", agency: "利民會", address: "新界屯門蝴蝶邨蝶舞樓地下", tel: "2466 2201" },
+                yl_east: { lat: 22.4450, lng: 114.0320, name: "浸信會愛羣社會服務處 - 朗和坊", agency: "浸信會愛羣社會服務處", address: "新界元朗凹頭博愛醫院百般愛心樓", tel: "2479 0321" },
+                yl_west: { lat: 22.4580, lng: 114.0010, name: "新生精神康復會 - 賽馬會朗晴居", agency: "新生精神康復會", address: "新界天水圍天晴邨天晴社區綜合服務大樓1樓", tel: "3156 2555" },
+                kwt_south: { lat: 22.3560, lng: 114.1280, name: "新生精神康復會 - 葵涌心靈休憩站", agency: "新生精神康復會", address: "新界葵涌葵芳邨葵安樓地下", tel: "2422 5050" },
+                kwt_north: { lat: 22.3680, lng: 114.1350, name: "香港明愛 - 葵青心靈健康中心", agency: "香港明愛", address: "新界葵涌石籬(二)邨石怡樓地下", tel: "2425 9333" },
+                tsty: { lat: 22.3520, lng: 114.1080, name: "新生精神康復會 - 青衣心靈港灣", agency: "新生精神康復會", address: "新界青衣長發邨賢發樓地下", tel: "2433 0111" },
+                islands: { lat: 22.2950, lng: 113.9450, name: "新生精神康復會 - 離島心靈驛站", agency: "新生精神康復會", address: "新界東湧逸東邨迎逸樓地下", tel: "3141 7111" }
+            };
+
+            function showInfoPopup(key, markerEl) {
+                document.querySelectorAll('.map-marker').forEach(m => m.classList.remove('active'));
+                markerEl.classList.add('active');
+
+                const loc = iccmwLocations[key];
+                const popup = document.getElementById('info-popup');
+                popup.innerHTML = `
+                    <b>${loc.name}</b><br>
+                    <strong>營辦機構：</strong>${loc.agency}<br>
+                    <strong>地址：</strong>${loc.address}<br>
+                    <strong>電話：</strong><a href="tel:${loc.tel}">${loc.tel}</a>
+                `;
+
+                // Position popup near the marker
+                const left = parseFloat(markerEl.style.left);
+                const top = parseFloat(markerEl.style.top);
+                let popupLeft = left + 3;
+                let popupTop = top - 8;
+                if (popupLeft > 65) popupLeft = left - 28;
+                if (popupTop < 5) popupTop = top + 8;
+                popup.style.left = popupLeft + '%';
+                popup.style.top = popupTop + '%';
+                popup.style.display = 'block';
+            }
+
+            function initStaticMap() {
+                const container = document.getElementById('map-container');
+                Object.keys(iccmwLocations).forEach(key => {
+                    const pos = markerPositions[key];
+                    if (!pos) return;
+                    const marker = document.createElement('div');
+                    marker.className = 'map-marker';
+                    marker.style.left = pos.left + '%';
+                    marker.style.top = pos.top + '%';
+                    marker.title = iccmwLocations[key].name;
+                    marker.onclick = function(e) {
+                        e.stopPropagation();
+                        showInfoPopup(key, marker);
+                    };
+                    container.appendChild(marker);
+                    iccmwLocations[key].markerEl = marker;
+                });
+
+                // Click outside to close popup
+                container.addEventListener('click', function(e) {
+                    if (!e.target.classList.contains('map-marker')) {
+                        document.getElementById('info-popup').style.display = 'none';
+                        document.querySelectorAll('.map-marker').forEach(m => m.classList.remove('active'));
+                    }
+                });
+            }
+
+            function searchLocation() {
+                const district = document.getElementById('district-select').value;
+                if (district && iccmwLocations[district] && iccmwLocations[district].markerEl) {
+                    showInfoPopup(district, iccmwLocations[district].markerEl);
+                }
+            }
+
+            // Initialize after DOM is ready
+            document.addEventListener('DOMContentLoaded', initStaticMap);
+
+            // ===== Language Switcher =====
+            const I18N = {
+                "zh-Hant": {
+                    brand: "融心堂- 精神健康", brandSub: "Mind Corner Support",
+                    navAbout: "關於我們", navMood: "心情選擇", navBreath: "呼吸放鬆", navTree: "樹洞寄語", navMap: "社區資源", hotline: "求助熱線 18111",
+                    hero1h: "照顧他人前，先抱抱自己", hero1p: "在這裏稍作休息，尋找適合你的社區支援與情緒舒緩練習。",
+                    hero2h: "給心靈一個喘息空間", hero2p: "聽聽溫柔海浪聲，讓緊張與壓迫感隨波浪慢慢消散。",
+                    hero3h: "同路人與你並肩同行", hero3p: "全港 25 間社區中心及樹洞空間，時刻準備聆聽你的聲音。",
+                    moodTitle: "1. 你此刻的心情如何？", moodLead: "點擊適合你當前狀態的選項，獲取即時建議與支援：",
+                    moodAnxiety: "焦慮", moodTired: "體力透支", moodLonely: "孤單", moodHelpless: "無助",
+                    treeTitle: "3. 樹洞寄語", treeLead: "留下你想說的話，或為其他病友與照顧者送上鼓勵：",
+                    treeNickPh: "你的稱呼 / 暱稱（選填，預設為「匿名」）", treeBodyPh: "寫下你的心情或鼓勵說話...", treeSend: "發布到樹洞",
+                    mapTitle: "4. 尋找附近的精神健康綜合社區中心 (ICCMW)", mapLead: "全港共有 25 間由社會福利署資助的精神健康綜合社區中心，提供一站式社區精神健康支援：",
+                    mapSelectPh: "-- 請選擇服務地區 --",
+                    footerBrand: "融心堂- 精神健康", footerDesc: "致力為香港照顧者與病友提供隨手可及的精神健康資訊與情緒喘息空間。",
+                    footerLinks: "快速連結", footerHotlines: "緊急求助熱線",
+                    optgroupHK: "香港島", optgroupKLN: "九龍", optgroupNTE: "新界東", optgroupNTW: "新界西"
+                },
+                "zh-Hans": {
+                    brand: "融心堂- 精神健康", brandSub: "Mind Corner Support",
+                    navAbout: "关于我们", navMood: "心情选择", navBreath: "呼吸放松", navTree: "树洞寄语", navMap: "社区资源", hotline: "求助热线 18111",
+                    hero1h: "照顾他人前，先抱抱自己", hero1p: "在这里稍作休息，寻找适合你的社区支援与情绪舒缓练习。",
+                    hero2h: "给心灵一个喘息空间", hero2p: "听听温柔海浪声，让紧张与压迫感随波浪慢慢消散。",
+                    hero3h: "同路人与你并肩同行", hero3p: "全港 25 间社区中心及树洞空间，时刻准备聆听你的声音。",
+                    moodTitle: "1. 你此刻的心情如何？", moodLead: "点击适合你当前状态的选项，获取即时建议与支援：",
+                    moodAnxiety: "焦虑", moodTired: "体力透支", moodLonely: "孤单", moodHelpless: "无助",
+                    treeTitle: "3. 树洞寄语", treeLead: "留下你想说的话，或为其他病友与照顾者送上鼓励：",
+                    treeNickPh: "你的称呼 / 昵称（选填，预设为「匿名」）", treeBodyPh: "写下你的心情或鼓励说话...", treeSend: "发布到树洞",
+                    mapTitle: "4. 寻找附近的精神健康综合社区中心 (ICCMW)", mapLead: "全港共有 25 间由社会福利署资助的精神健康综合社区中心，提供一站式社区精神健康支援：",
+                    mapSelectPh: "-- 请选择服务地区 --",
+                    footerBrand: "融心堂- 精神健康", footerDesc: "致力为香港照顾者与病友提供随手可及的精神健康资讯与情绪喘息空间。",
+                    footerLinks: "快速链接", footerHotlines: "紧急求助热线",
+                    optgroupHK: "香港岛", optgroupKLN: "九龙", optgroupNTE: "新界东", optgroupNTW: "新界西"
+                },
+                en: {
+                    brand: "Rong Xin Tang - Mental Health", brandSub: "Mind Corner Support",
+                    navAbout: "About Us", navMood: "Mood Check", navBreath: "Breathing", navTree: "Treehole", navMap: "Community", hotline: "Hotline 18111",
+                    hero1h: "Care for yourself before caring for others", hero1p: "Take a moment here to find community support and emotional relief exercises that suit you.",
+                    hero2h: "Give your mind a breathing space", hero2p: "Listen to the gentle waves and let tension drift away with the tide.",
+                    hero3h: "Fellow travellers walk beside you", hero3p: "25 community centres and a treehole space ready to listen across Hong Kong.",
+                    moodTitle: "1. How are you feeling right now?", moodLead: "Click the option that matches your current state for immediate suggestions:",
+                    moodAnxiety: "Anxious", moodTired: "Exhausted", moodLonely: "Lonely", moodHelpless: "Helpless",
+                    treeTitle: "3. Treehole Messages", treeLead: "Leave a message or send encouragement to other patients and carers:",
+                    treeNickPh: "Your name / nickname (optional, defaults to Anonymous)", treeBodyPh: "Write your feelings or words of encouragement...", treeSend: "Post to Treehole",
+                    mapTitle: "4. Find a nearby Integrated Community Centre for Mental Wellness (ICCMW)", mapLead: "There are 25 SWD-funded ICCMWs across Hong Kong providing one-stop community mental health support:",
+                    mapSelectPh: "-- Select a service area --",
+                    footerBrand: "Rong Xin Tang - Mental Health", footerDesc: "Providing accessible mental health information and emotional breathing space for carers and patients in Hong Kong.",
+                    footerLinks: "Quick Links", footerHotlines: "Emergency Hotlines",
+                    optgroupHK: "Hong Kong Island", optgroupKLN: "Kowloon", optgroupNTE: "New Territories East", optgroupNTW: "New Territories West"
+                }
+            };
+
+            let currentLang = localStorage.getItem('mental-lang') || 'zh-Hant';
+
+            function t(key) {
+                return (I18N[currentLang] && I18N[currentLang][key]) || key;
+            }
+
+            function applyLang() {
+                document.documentElement.lang = currentLang === 'en' ? 'en' : currentLang === 'zh-Hans' ? 'zh-CN' : 'zh-HK';
+                document.title = t('brand');
+
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.dataset.i18n;
+                    if (key) el.textContent = t(key);
+                });
+
+                document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                    const key = el.dataset.i18nPlaceholder;
+                    if (key) el.placeholder = t(key);
+                });
+
+                // Update language buttons
+                document.querySelectorAll('.lang-switch button').forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.lang === currentLang);
+                });
+
+                // Update mood card labels
+                const moodMap = { anxiety: 'moodAnxiety', tired: 'moodTired', lonely: 'moodLonely', helpless: 'moodHelpless' };
+                document.querySelectorAll('[data-mood]').forEach(card => {
+                    const key = moodMap[card.dataset.mood];
+                    const label = card.querySelector('.featured-block-text, p');
+                    if (label && key) label.textContent = t(key);
+                });
+
+                // Update select optgroups and placeholder
+                const select = document.getElementById('district-select');
+                if (select) {
+                    const firstOpt = select.querySelector('option[value=""]');
+                    if (firstOpt) firstOpt.textContent = t('mapSelectPh');
+                    const groups = select.querySelectorAll('optgroup');
+                    const groupKeys = ['optgroupHK', 'optgroupKLN', 'optgroupNTE', 'optgroupNTW'];
+                    groups.forEach((g, i) => { if (groupKeys[i]) g.label = t(groupKeys[i]); });
+                }
+
+                localStorage.setItem('mental-lang', currentLang);
+            }
+
+            // Bind language buttons
+            document.querySelectorAll('.lang-switch button').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    currentLang = btn.dataset.lang;
+                    applyLang();
+                });
+            });
+
+            // Apply on load
+            document.addEventListener('DOMContentLoaded', applyLang);
+        </script>
+    </body>
+</html>
